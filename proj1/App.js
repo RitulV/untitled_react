@@ -6,7 +6,7 @@ Dev builder
 Local Server
 Code optimization
 Hot Module Replacemet
-File watcher montioring any changes in files
+File watcher montioring any changes in files (written in C++)
 Bundling
 Minifying, uglify, and compression 
 Hashing, code splitting
