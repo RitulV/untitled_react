@@ -1,0 +1,21 @@
+{
+  "name": "food_frontend",
+  "version": "1.0.0",
+  "description": "This is the frontend of a food ordering application",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx parcel index.html",
+    "prodBuild": "npx parcel build index.html"
+  },
+  "author": "Ritul Vaghela",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-react": "^7.24.7",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
