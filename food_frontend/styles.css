@@ -22,6 +22,12 @@
     margin:5px;
 }
 
+.res-card > img {
+    width: 200px;
+    height: auto;
+    margin:5px;
+}
+
 .nav-items > ul > li {
     font-size: 20px;
     padding: 2px;
@@ -35,7 +41,6 @@
     /* align-items: center; */
     justify-content: center;
     flex-wrap: wrap;
-
     background-color: beige;
     border: 1px solid black;
 }
@@ -53,7 +58,16 @@
     margin: 5px;
     padding: 2px;
     background-color: whitesmoke;
-    border: 1px solid black;
     width: fit-content;
     height: fit-content;
+    border: 0.5 px solid gray;
+}
+
+.res-card:hover {
+    cursor: pointer;
+    border: 0.8px solid black;
+    box-shadow: 5px 5px 5px rgba(70, 69, 69, 0.3); /* Creates a soft shadow */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
+    transform: scale(1.05); /* Grows by 10% on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
 }

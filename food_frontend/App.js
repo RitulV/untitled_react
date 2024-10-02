@@ -22,8 +22,11 @@ const Header = () => {
 const RestroCard = () => {
     return (
         <div className="res-card ">
-            <p>Restaurant Name</p>
-            <p>Restaurant rating</p>
+            <img src="https://imgs.search.brave.com/YcasNzYOTi2BQoPq6k8p5XsiiXPxjUNm573M4jLxp2c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTAz/NTAyMjEwMC9waG90/by9zdWJ3YXktYnVy/Z2VyLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1RVUc5cTYy/QTFDZ0lGNGhxMGlS/dG1zLVdNbzIyUmpq/eURLai16VUo0ZWxz/PQ"></img>
+            <p>Restaurant Name: </p>
+            <p>Cuisine: </p>
+            <p>Restaurant rating: </p>
+            <p>Price for 2: </p>
         </div>
     );
 }
@@ -32,7 +35,7 @@ const Body = () => {
   return (
     <div className="body">
           <div className="search-bar">
-              <p>Search Bar :/</p>
+              <p>&nbsp;</p>
           </div>
           <div className="res-card-container">
               <RestroCard/>
