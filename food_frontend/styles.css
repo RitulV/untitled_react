@@ -161,8 +161,9 @@
     display: grid;
     width: fit-content;
     grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
+    justify-items: stretch;
     column-gap: 20px;
+    row-gap: 10px;
     padding: 10px 0px;
 }
 
@@ -177,7 +178,47 @@
     grid-row-start: 1;
     grid-row-end: 3;
     height: auto;
-    justify-items: stretch;
+}
+
+.company-info>h1, p {
+    margin:10px;
+}
+
+.company-info>h1 >img {
+    height: 30px;
+    width: 30px;
+}
+
+.company-details-container>h2 {
+    margin:10px;
+}
+
+.company-details-items {
+    margin: 10px;
+}
+
+.delivery-details-container>h2 {
+    margin: 10px;
+}
+
+.delivery-details-items {
+    margin: 10px;
+}
+
+.content1-details-container>h2 {
+    margin: 10px;
+}
+
+.content1-details-items {
+    margin: 10px;
+}
+
+.content2-details-container>h2 {
+    margin: 10px;
+}
+
+.content2-details-items {
+    margin: 10px;
 }
 
 .sidebar1 {
