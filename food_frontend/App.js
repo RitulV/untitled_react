@@ -172,6 +172,7 @@ const resList = [
     },
     analytics: {
       context: "seo-data-c29bda96-b3b9-4cdf-8ed5-855df803ba98",
+
     },
     cta: {
       link: "https://www.swiggy.com/city/ahmedabad/mcdonalds-ellis-bridge-ashram-road-rest52630",
