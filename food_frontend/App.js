@@ -16,14 +16,21 @@ const Header = () => {
   );
 };
 
-const RestroCard = (props) => {
+const RestroCard = (props) => { 
+  const {resData} = props;
   return (
     <div className="res-card ">
-      <img src={props.resImage} className="res-card-img"></img>
-      <p>{props.resName}</p>
-      <p>{props.resCuisine}</p>
-      <p>{props.resRating}⭐</p>
-      <p>Price for 2: ${props.resPrice}</p>
+      <img
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          resData.info.cloudinaryImageId
+        }
+        className="res-card-img"
+      ></img>
+      <p>{resData.info.name}</p>
+      <p>{resData.info.cuisines.join(", ")}</p>
+      <p>{resData.info.avgRating}⭐</p>
+      <p>{resData.info.areaName}</p>
     </div>
   );
 };
@@ -682,62 +689,9 @@ const Body = () => {
       </div>
 
       <div className="res-card-container">
-        <RestroCard
-          resName="Subway"
-          resCuisine="Subs, Salads, Cookies"
-          resRating="5"
-          resPrice="15"
-          resImage="https://imgs.search.brave.com/YcasNzYOTi2BQoPq6k8p5XsiiXPxjUNm573M4jLxp2c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTAz/NTAyMjEwMC9waG90/by9zdWJ3YXktYnVy/Z2VyLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1RVUc5cTYy/QTFDZ0lGNGhxMGlS/dG1zLVdNbzIyUmpq/eURLai16VUo0ZWxz/PQ"
-        />
-        <RestroCard
-          resName="Dunkin' Donuts"
-          resCuisine="Subs, Drinks"
-          resRating="4.3"
-          resPrice="8"
-          resImage="https://imgs.search.brave.com/yP02Co2cIeEEH-zO52K9sHyufsDCMkHi_uSyM9UIU24/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzgwLzI5/LzMzLzgwMjkzMzU2/YWM5ZGRkZDU1YTY5/NDQxMDViZTE4Mzg0/LmpwZw"
-        />
-        <RestroCard
-          resName="KFC"
-          resCuisine="Wings, Burgers"
-          resRating="3.7"
-          resPrice="10"
-          resImage="https://imgs.search.brave.com/qQCe_blcV0nyoYB0vI2YRG56en7CT-OupXBtCMVQxEg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA2LzIzLzI3Lzg3/LzM2MF9GXzYyMzI3/ODc4NV8ybm94RFFC/MXlEMnR6N1pGR2Nm/bVlkclJFd3ZsSDVw/ai5qcGc"
-        />
-        <RestroCard
-          resName="McDonalds"
-          resCuisine="Burgers, Fries, Softies"
-          resRating="4.7"
-          resPrice="9"
-          resImage="https://imgs.search.brave.com/zIaMljPfw7wzZYmBDbaUww4TpmdSJWtnhCHw9EETbAw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNDU4/NzAzMzE5L3Bob3Rv/L21jZG9uYWxkcy1i/aWctbWFjLXZhbHVl/LW1lYWwuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPVNDbVp4/UVdkelE5VXVLSGtx/TWttbHRZWXYxbU9H/WDJBQTFwOEJ1dWI1/UXM9"
-        />
-        <RestroCard
-          resName="Lapinoz Pizza"
-          resCuisine="Pizza, Drinks"
-          resRating="4.5"
-          resPrice="13"
-          resImage="https://imgs.search.brave.com/ild7m0464EarDAuB-CwrV8FMmMNK19JIYjp227f8wkE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQ1/OTcxNTc5OS9waG90/by9waXp6YS13aXRo/LWhhbS1hbmQtY2hl/ZXNlLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1ncFJNVmZx/eTQ0YWc0VGtyb1Q4/V0VlclJvdGxmS2hl/WlF1NmtRa2RobnhR/PQ"
-        />
-        <RestroCard
-          resName="Icontrast"
-          resCuisine="Shakes, Ice Cream"
-          resRating="4.9"
-          resPrice="4"
-          resImage="https://imgs.search.brave.com/mPbBji0TH_xyPUerxjMQcJg9La56ML5SGnQA_Ze0TCg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlc3BydWNlZWF0/cy5jb20vdGhtYi9n/TVVpQ1pBaTMxWS1B/RlA2d0d3V2Z0QXUz/cUU9LzE1MDB4MC9m/aWx0ZXJzOm5vX3Vw/c2NhbGUoKTptYXhf/Ynl0ZXMoMTUwMDAw/KTpzdHJpcF9pY2Mo/KS9jb29raWVzLWFu/ZC1jcmVhbS1taWxr/c2hha2UtNTA5MzUw/NC1oZXJvLTAxLTVk/Mjg5ZThhMTZkMzQx/M2RhMDM0MzBiNWU0/OGIyZmMwLmpwZw"
-        />
-        <RestroCard
-          resName="MMV"
-          resCuisine="Misal Thali, Vadapav"
-          resRating="4.1"
-          resPrice="5"
-          resImage="https://imgs.search.brave.com/E2bVB-vRiiwQiHyj1WnLjxD5YhmY04Tl9FG4-1tR2Is/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL2NvbXAv/YWhtZWRhYmFkL3c2/LzA3OXB4eDc5Lnh4/NzkuMjIwNDA1MjEy/NDMwLmM2dzYvY2F0/YWxvZ3VlL211bWJh/aXlhLW1pc2FsLWFu/ZC12YWRhcGF2LXJl/bGllZi1yb2FkLWFo/bWVkYWJhZC1taXNh/bC1wYXYtY2VudHJl/cy0wNmlobmV0aXU3/LmpwZz93PTM4NDAm/cT03NQ"
-        />
-        <RestroCard
-          resName="Theobroma"
-          resCuisine="Bakery, Desserts"
-          resRating="4.6"
-          resPrice="6"
-          resImage="https://imgs.search.brave.com/fW9lpr8JrUSaJpVKMiqaS5JuRpiJVJ2oBPK8VNTriyU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/c25kaW1nLmNvbS9m/b29kL2ltYWdlL3Vw/bG9hZC93XzU1NSxo/XzQxNixjX2ZpdCxm/bF9wcm9ncmVzc2l2/ZSxxXzk1L3YxL2lt/Zy9yZWNpcGVzLzE4/LzExLzYvQXltMmY0/OE9RYmFiNGxhbW5T/cWNfdW50aXRsZWQt/Nzc4Ni5qcGc"
-        />
+        {resList.map((restaurant) => (
+          <RestroCard resData={restaurant} />
+        ))}
       </div>
     </div>
   );
