@@ -1,41 +1,4 @@
-import React from "react";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-img">
-        <img src="https://ritulv.github.io/image-hosting/1.png"></img>
-      </div>
-      <div className="nav-items-container">
-        <div className="nav-items">Search</div>
-        <div className="nav-items">Offers</div>
-        <div className="nav-items">Sign in</div>
-        <div className="nav-items">Cart</div>
-      </div>
-    </div>
-  );
-};
-
-const RestroCard = (props) => { 
-  const {resData} = props;
-  return (
-    <div className="res-card ">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resData.info.cloudinaryImageId
-        }
-        className="res-card-img"
-      ></img>
-      <p>{resData.info.name}</p>
-      <p>{resData.info.cuisines.join(", ")}</p>
-      <p>{resData.info.avgRating}⭐</p>
-      <p>{resData.info.areaName}</p>
-    </div>
-  );
-};
-
-const resList = [
+export const resList = [
   {
     info: {
       id: "384540",
@@ -179,7 +142,6 @@ const resList = [
     },
     analytics: {
       context: "seo-data-c29bda96-b3b9-4cdf-8ed5-855df803ba98",
-
     },
     cta: {
       link: "https://www.swiggy.com/city/ahmedabad/mcdonalds-ellis-bridge-ashram-road-rest52630",
@@ -680,98 +642,3 @@ const resList = [
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
 ];
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search-bar">
-        <p>&nbsp;</p>
-      </div>
-
-      <div className="res-card-container">
-        {resList.map((restaurant) => (
-          <RestroCard key={restaurant.info.id} resData={restaurant} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Footer = () => {
-  return (
-    <div className="footer">
-      <div className="app-down-container">
-        <div className="app-down-promo">Download LunchBox app now</div>
-
-        <div className="app-down-info">
-          <div className="app-down-item">
-            <img src="https://imgs.search.brave.com/Kme4F67YuI8Nyg-oX9X6xhmjVTwEi27SyH0eCapBCI8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9saDMu/Z29vZ2xldXNlcmNv/bnRlbnQuY29tL3pX/WUpVcHBmVS1UdW5I/U3hLTUE2aTFMUnB2/MlBPV2FHQ09PY3Z3/UjJoMUVfUjhMWjNS/Q2lNVWdieXhKREdG/UXFlUFIzRzVCQTNN/ZHBVdzRfQnRRX21l/ZlYzNldIM3RuQnJW/M1prdVNqPWUzNjUt/cGEtbnUtczA"></img>
-          </div>
-          <div className="app-down-item">
-            <img src="https://imgs.search.brave.com/zkbUGVgXn1M8tiHBbiwr2UTWR9JF2yfXDK_8aSFwz40/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZXZl/bG9wZXIuYXBwbGUu/Y29tL2Fzc2V0cy9l/bGVtZW50cy9iYWRn/ZXMvZG93bmxvYWQt/b24tdGhlLWFwcC1z/dG9yZS5zdmc"></img>
-          </div>
-        </div>
-      </div>
-
-      <div className="app-info-container">
-        <div className="company">
-          <div className="company-info">
-            <h1>
-              <img src="https://imgs.search.brave.com/cqeznmNGQOyAKZ97F0xORO7MbgbIwEpSQdhaPlUF--g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYXhz/dC5pY29uczguY29t/L3Z1ZS1zdGF0aWMv/aWNvbi9tZW51L2xv/Z28uc3Zn"></img>
-              &nbsp;LunchBox
-            </h1>
-            <p>©️ 2024 Big Tech</p>
-          </div>
-        </div>
-        <div className="sidebar1">
-          <div className="company-details-container">
-            <h2>Company</h2>
-            {/* https://imgs.search.brave.com/_QyFIbyj2dD2fMBmHATNX5D5BhOf1EuvmHk75S7tJLc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzFkLzc4/L2JmLzFkNzhiZmJm/ODE3YzVhZWM1NDYy/NjAxYzI5OTA0N2Jj/LmpwZw */}
-            <div className="company-details-items">About</div>
-            <div className="company-details-items">Careers</div>
-            <div className="company-details-items">Team</div>
-          </div>
-        </div>
-        <div className="sidebar2">
-          <div className="delivery-details-container">
-            <h2>Now delivering to:</h2>
-            <div className="delivery-details-items">Bangalore</div>
-            <div className="delivery-details-items">Hyderabad</div>
-            <div className="delivery-details-items">Pune</div>
-            <div className="delivery-details-items">Chennai</div>
-            <div className="delivery-details-items">Ahmedabad</div>
-            <div className="delivery-details-items">Jaipur</div>
-          </div>
-        </div>
-        <div className="content1">
-          <div className="content1-details-container">
-            <h2>Contact us</h2>
-            <div className="content1-details-items">Help & Support</div>
-            <div className="content1-details-items">Partnership</div>
-          </div>
-        </div>
-        <div className="content2">
-          <div className="content2-details-container">
-            <h2>Legal</h2>
-            <div className="content2-details-items">Terms & Condition</div>
-            <div className="content2-details-items">Cookie Policy</div>
-            <div className="content2-details-items">Privacy Policy</div>
-            <div className="content2-details-items">Investment Policy</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-      <Footer />
-    </div>
-  );
-};
-
-export default AppLayout;
