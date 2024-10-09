@@ -5,7 +5,7 @@ const RestroCard = (props) => {
   const { cloudinaryImageId, name, cuisines, avgRating, areaName } =
     resData?.info;
   return (
-    <div className="res-card ">
+    <div className="res-card">
       <img src={CDN_URL  + cloudinaryImageId} className="res-card-img"></img>
       <p>{name}</p>
       <p>{cuisines.join(", ")}</p>

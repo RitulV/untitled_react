@@ -47,11 +47,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-.nav-items:hover {
-    color: red;
-    cursor: pointer;
+    &:hover {
+        color: red;
+        cursor: pointer;
+    }
 }
 
 .body{
@@ -66,11 +66,27 @@
 
 .search-bar {
     flex-basis: 60%; /* occupies the entire width */
-    height: 35px;
-    margin: 5px;
+    /* height: 35px; */
+    margin: 10px;
 
     background-color: rgb(244, 228, 209);
     border: 1px solid black;
+}
+
+.search-bar>button {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    padding: 3px 6px;
+    margin: 5px;
+    background-color: rgb(37, 180, 92);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+        transform: scale(0.90);
+        transition: transform 0.3s ease;
+    }
 }
 
 .res-card-container {
@@ -85,36 +101,39 @@
     margin: 5px;
     padding: 8px;
 
-    width: fit-content;
     height: fit-content;
+    width: 330px;
+
+    display: flex;
+    flex-wrap: wrap;
 
     background-color: whitesmoke;  
     border: 0.5px solid black;
     border-radius: 15px;
+    & p {
+        margin: 8px 0;
+        font-size: 16px;
+        flex-basis: 100%;
+        /* text-align: center; */
+    }
+    &:hover {
+        cursor: pointer;
+        border: 0.8px solid black;
+        box-shadow: 5px 5px 5px rgba(70, 69, 69, 0.3); /* Creates a soft shadow */
+        transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
+        transform: scale(0.95); /*Grows by 5% on hover*/
+        transition: transform 0.3s ease; /* Smooth transition */
+    }
 }
-
-.res-card p {
-    margin: 10px 0;
-    font-size: 16px;
-    /* text-align: center; */
-}
-
 
 .res-card-img {
     width: 230px;
     height: 120px;
-    object-fit: cover; /* Ensures the image maintains its aspect ratio while fitting the container */
+    flex-basis: 80%;
+    justify-self: center;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio while fitting the container*/
     border-radius: 10px;
     margin:5px;
-}
-
-.res-card:hover {
-    cursor: pointer;
-    border: 0.8px solid black;
-    box-shadow: 5px 5px 5px rgba(70, 69, 69, 0.3); /* Creates a soft shadow */
-    transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
-    transform: scale(0.95); /*Grows by 5% on hover*/
-    transition: transform 0.3s ease; /* Smooth transition */
 }
 
 .footer {
