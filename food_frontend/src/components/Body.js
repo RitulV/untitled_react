@@ -21,19 +21,31 @@ const Body = () => {
 
   // conditional rendering - shimmer UI
 
-  return listOfRest.length == 0 ? <Shimmer /> : (
+  return listOfRest.length == 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
-      <div className="search-bar">
+      <div className="search-bar-container">
+        <button className="search-bar-btn">Filter</button>
+        <button className="search-bar-btn">Sort By</button>
+        <button className="search-bar-btn">Fast Delivery</button>
+        <button className="search-bar-btn">Pure Veg</button>
         <button
           onClick={() => {
             const newList = listOfRest.filter(
-              (rest) => rest.info.avgRating > 4
+              (rest) => rest.info.avgRating >= 4.0
             );
             setNewList(newList);
           }}
+          className="search-bar-btn"
         >
-          Filter
+          Ratings 4.0+
         </button>
+        <input
+          className="search-bar-input"
+          type="text"
+          placeholder="🔎 Search..."
+        />
       </div>
 
       <div className="res-card-container">

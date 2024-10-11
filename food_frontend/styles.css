@@ -64,16 +64,30 @@
     border: 1px solid black;
 }
 
-.search-bar {
-    flex-basis: 60%; /* occupies the entire width */
+.search-bar-container {
+    display: flex;
+    flex-basis: 100%; /* occupies the entire width */
     /* height: 35px; */
-    margin: 10px;
+    margin: 10px 5px;
 
     background-color: rgb(244, 228, 209);
     border: 1px solid black;
+    justify-content: space-around;
+    align-items: center;
+    &>input {
+        padding: 5px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        flex-grow: 1; /* Make the input take up remaining space */
+        max-width: 300px; /* Optional: Set a max width for the search bar */
+        margin-left: 50px; /* Add space between the last button and search bar */
+    }
 }
 
-.search-bar>button {
+.search-bar-btn{
+    justify-self: flex-start;
+
     font-size: 16px;
     font-weight: bold;
     color: white;
