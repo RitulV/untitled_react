@@ -97,6 +97,29 @@
     gap: 20px; /* Adds row and col gap between the cards */
 }
 
+.shimmer-container {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /*1 columns with each of equal distribution */
+    place-items: center; /* places items at center of the cell */
+    gap: 20px; /* Adds row and col gap between the cards */
+}
+
+.shimmer-item {
+    margin: 5px;
+    padding: 8px;
+
+    height: 280px;
+    width: 330px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    background-color: whitesmoke;  
+    border: 0.5px solid black;
+    border-radius: 15px;
+}
+
 .res-card {
     margin: 5px;
     padding: 8px;
@@ -273,6 +296,9 @@
 
 @media (min-width: 1050px){
     .res-card-container {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+    .shimmer-container {
         grid-template-columns: repeat(4, 1fr); 
     }
 }

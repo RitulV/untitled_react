@@ -19,11 +19,9 @@ const Body = () => {
     );
   }
 
-  if (listOfRest.length == 0) {
-    return <Shimmer />;
-  }
+  // conditional rendering - shimmer UI
 
-  return (
+  return listOfRest.length == 0 ? <Shimmer /> : (
     <div className="body">
       <div className="search-bar">
         <button
