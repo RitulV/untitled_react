@@ -36,7 +36,7 @@ const Body = () => {
   }, [searchText, listOfRest]); // Update filtered list when searchText or listOfRest changes
 
   // Conditional rendering - shimmer UI when loading
-  return listOfRest.length === 0 ? ( <Shimmer />) : (
+  return listOfRest.length === 0 ? ( <Shimmer /> ) : (
     <div className="body">
       <div className="search-bar-container">
         <button className="search-bar-btn">Filter</button>
