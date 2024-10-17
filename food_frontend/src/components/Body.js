@@ -3,7 +3,6 @@ import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 
 const Body = () => {
-  // Correct state variables
   const [listOfRest, setNewList] = useState([]); // the original list containing all the restaurants
   const [filteredListOfRest, setNewfilteredListOfRest] = useState([]); // the list that will be shown when filter is applied
   const [searchText, setSearchText] = useState(""); // this will store the value of the search text box
@@ -20,8 +19,7 @@ const Body = () => {
     );
     const json = await data.json();
     const restaurants =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
     // Set both original and filtered list initially
     setNewList(restaurants);
@@ -38,9 +36,7 @@ const Body = () => {
   }, [searchText, listOfRest]); // Update filtered list when searchText or listOfRest changes
 
   // Conditional rendering - shimmer UI when loading
-  return listOfRest.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return listOfRest.length === 0 ? ( <Shimmer />) : (
     <div className="body">
       <div className="search-bar-container">
         <button className="search-bar-btn">Filter</button>
