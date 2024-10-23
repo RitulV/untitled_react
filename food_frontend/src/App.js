@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 
 import Offer from "./components/Offer";
 import Cart from "./components/Cart";
+import RestMenu from "./components/RestMenu";
 import Error from "./components/Error";
 
 const AppLayout = () => {
@@ -36,7 +37,11 @@ export const router = createBrowserRouter([
         path: "/offers",
         element: <Offer />,
       },
-    ]
+      {
+        path: "/restaurant/:resId",
+        element: <RestMenu />,
+      },
+    ],
   },
 ]);
 
