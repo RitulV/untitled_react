@@ -1,6 +1,7 @@
 import RestroCard from "./RestroCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRest, setNewList] = useState([]); // the original list containing all the restaurants
@@ -19,7 +20,8 @@ const Body = () => {
     );
     const json = await data.json();
     const restaurants =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
 
     // Set both original and filtered list initially
     setNewList(restaurants);
@@ -36,7 +38,9 @@ const Body = () => {
   }, [searchText, listOfRest]); // Update filtered list when searchText or listOfRest changes
 
   // Conditional rendering - shimmer UI when loading
-  return listOfRest.length === 0 ? ( <Shimmer /> ) : (
+  return listOfRest.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="search-bar-container">
         <button className="search-bar-btn">Filter</button>
@@ -65,7 +69,12 @@ const Body = () => {
 
       <div className="res-card-container">
         {filteredListOfRest.map((restaurant) => (
-          <RestroCard key={restaurant.info.id} resData={restaurant} />
+          <Link
+            key={restaurant.info.id} // adding key to parent level element
+            to={"/restaurant/" + restaurant.info.id}
+          >
+            <RestroCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
