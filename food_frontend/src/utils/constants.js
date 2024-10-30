@@ -11,3 +11,6 @@ export const APP_STORE_LOGO =
 
 export const FOOT_LOGO =
   "https://imgs.search.brave.com/cqeznmNGQOyAKZ97F0xORO7MbgbIwEpSQdhaPlUF--g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYXhz/dC5pY29uczguY29t/L3Z1ZS1zdGF0aWMv/aWNvbi9tZW51L2xv/Z28uc3Zn";
+
+export const MENU_CARD =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=";

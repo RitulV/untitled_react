@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { MENU_CARD } from "../utils/constants"
 
 const RestMenu = () => {
   const [resInfo, setData] = useState(null);
+  const { resId } = useParams(); // to get the restaurant id from the url
 
   useEffect(() => {
     fetchMenu();
   }, []);
 
   const fetchMenu = async () => {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=47589&catalog_qa=undefined&submitAction=ENTER"
-    );
+    const response = await fetch(MENU_CARD + resId);
     const json = await response.json();
     console.log(json);
     setData(json.data);
@@ -58,6 +59,8 @@ const RestMenu = () => {
           <span>{resInfo?.cards[2]?.card?.card?.info?.sla?.slaString}</span>
         </div>
       </div>
+
+      <hr></hr>
 
       <div className="res-menu-list-container">
         
