@@ -3,6 +3,9 @@ export const HEAD_LOGO = "https://ritulv.github.io/image-hosting/1.png";
 export const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
+export const IMG_CDN_URL =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
+
 export const G_PLAY_LOGO =
     "https://imgs.search.brave.com/Kme4F67YuI8Nyg-oX9X6xhmjVTwEi27SyH0eCapBCI8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9saDMu/Z29vZ2xldXNlcmNv/bnRlbnQuY29tL3pX/WUpVcHBmVS1UdW5I/U3hLTUE2aTFMUnB2/MlBPV2FHQ09PY3Z3/UjJoMUVfUjhMWjNS/Q2lNVWdieXhKREdG/UXFlUFIzRzVCQTNN/ZHBVdzRfQnRRX21l/ZlYzNldIM3RuQnJW/M1prdVNqPWUzNjUt/cGEtbnUtczA";
 
