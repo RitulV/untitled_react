@@ -55,13 +55,13 @@ const RestMenu = () => {
         <div className="quick-info-second">{resData?.cuisines.join(", ")}</div>
 
         <div className="quick-info-third">
-          <img src="https://ritulv.github.io/image-hosting/loc-pin.png"></img>
+          <img src="https://ritulv.github.io/image-hosting/loc-pin.png" />
           <span>Outlet</span>
           <p>{resData?.areaName}</p>
         </div>
 
         <div className="quick-info-fourth">
-          <img src="https://ritulv.github.io/image-hosting/timer.png"></img>
+          <img src="https://ritulv.github.io/image-hosting/timer.png" />
           <span>{resData?.sla?.slaString}</span>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { FOOT_LOGO, G_PLAY_LOGO, APP_STORE_LOGO } from "../utils/constants";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -31,7 +32,9 @@ const Footer = () => {
             <h2>Company</h2>
             <div className="company-details-items">About</div>
             <div className="company-details-items">Careers</div>
-            <div className="company-details-items">Team</div>
+            <div className="company-details-items">
+              <Link to="/company/team">Team</Link>
+            </div>
           </div>
         </div>
         <div className="sidebar2">
