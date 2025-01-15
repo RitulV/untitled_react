@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MENU_CARD } from "../utils/constants";
 import MenuItemCard from "./MenuItemCard";
+import useRestMenu from "../utils/useRestMenu";
 import MenuItemCardShimmer from "./MenuItemCardShimmer";
 
 const RestMenu = () => {
-  const [resInfo, setData] = useState(null);
   const { resId } = useParams(); // to get the restaurant id from the url
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const response = await fetch(MENU_CARD + resId);
-    const json = await response.json();
-    // console.log(json);
-    setData(json.data);
-  };
+  const resInfo = useRestMenu(resId);
 
   // to be displayed in the quick-info box for the restaurant
   const resData = resInfo?.cards[2]?.card?.card?.info;
@@ -25,7 +14,6 @@ const RestMenu = () => {
   // to be displayed in the menu item list
   const resMenuItemList =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-  // console.log(resMenuItemList);
 
   return (
     <div className="res-menu-container">
