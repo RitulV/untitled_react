@@ -1,11 +1,11 @@
 import ItemCard from "./ItemCard";
 
 const MenuItemCard = (props) => {
-  const { data } = props;
-    // console.log(data);
+  const { itemData } = props;
+    // console.log(itemData);
     return (
       <div className="res-menu-list-container">
-        {data.map((itemInfo) => (
+        {itemData.map((itemInfo) => (
           <ItemCard key={itemInfo.card.info.id} itemData={itemInfo.card.info} />
         ))}
       </div>

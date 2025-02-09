@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300");
+@import "tailwindcss";
 
 * {
   margin: 0;
@@ -105,6 +106,8 @@
 
 .res-menu-name {
   margin: 10px 0px;
+  font-size:x-large;
+  font-weight: bold;
 }
 
 .quick-info-card {
@@ -480,6 +483,7 @@ p {
 
 .res-menu-list-item {
   padding: 8px;
+  padding-right: 0px;
   width: 770px;
 
   display: flex;
@@ -578,7 +582,7 @@ p {
 
 .res-menu-list-item-image {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin-bottom: 10px;
 
   & > img {

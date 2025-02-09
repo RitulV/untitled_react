@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import MenuItemCard from "./MenuItemCard";
 import useRestMenu from "../utils/useRestMenu";
 import MenuItemCardShimmer from "./MenuItemCardShimmer";
+import RestMenuCategory from "./RestMenuCategory";
 
 const RestMenu = () => {
   const { resId } = useParams(); // to get the restaurant id from the url
@@ -12,10 +13,14 @@ const RestMenu = () => {
   const resData = resInfo?.cards[2]?.card?.card?.info;
 
   // to be displayed in the menu item list
-  const resMenuItemList =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    (c) =>
+      c.card?.["card"]?.["@type"] ==
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
-  console.log(resMenuItemList);
+  // console.log(categories);
 
   return (
     <div className="res-menu-container">
@@ -31,7 +36,7 @@ const RestMenu = () => {
       </div>
       <div className="quick-info-card">
         <div className="quick-info-first">
-          <img src="https://ritulv.github.io/image-hosting/star-logo.png"></img>
+          <img src="https://ritulv.github.io/image-hosting/star-logo.png" />
           <span>
             {resData?.avgRatingString}
             {" ("}
@@ -55,13 +60,17 @@ const RestMenu = () => {
           <span>{resData?.sla?.slaString}</span>
         </div>
       </div>
-      <hr></hr>
+      <hr />
 
       <div>
-        {resMenuItemList == undefined ? (
+        {categories == undefined ? (
           <MenuItemCardShimmer />
         ) : (
-          <MenuItemCard data={resMenuItemList[2]?.card?.card?.itemCards} />
+          <div>
+            {categories.map((category, index) => (
+              <RestMenuCategory key={index} data={category.card?.card} />
+            ))}
+          </div>
         )}
       </div>
     </div>

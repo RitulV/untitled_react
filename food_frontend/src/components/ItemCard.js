@@ -23,7 +23,7 @@ const ItemCard = (props) => {
   };
 
   // console.log(itemData);
-  
+
   return (
     <div className="res-menu-list-item">
       <div className="res-menu-list-item-1">
@@ -42,7 +42,7 @@ const ItemCard = (props) => {
 
           <div className="res-menu-list-item-2">
             <img src="https://ritulv.github.io/image-hosting/rupee.png" />
-            <span>{itemData.price / 100}</span>
+            <span>{(itemData.price / 100) || (itemData.defaultPrice / 100)}</span>
           </div>
 
           {itemData.ratings.aggregatedRating.rating ? (
