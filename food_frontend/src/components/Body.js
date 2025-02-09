@@ -20,7 +20,7 @@ const Body = () => {
     );
     const json = await data.json();
     const restaurants =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
 
     // Set both original and filtered list initially

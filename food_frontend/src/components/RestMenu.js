@@ -15,6 +15,8 @@ const RestMenu = () => {
   const resMenuItemList =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
+  console.log(resMenuItemList);
+
   return (
     <div className="res-menu-container">
       <div className="res-menu-path">

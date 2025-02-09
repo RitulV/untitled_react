@@ -22,7 +22,8 @@ const ItemCard = (props) => {
     setIsExpanded(!isExpanded);
   };
 
-  console.log(itemData);
+  // console.log(itemData);
+  
   return (
     <div className="res-menu-list-item">
       <div className="res-menu-list-item-1">
