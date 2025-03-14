@@ -3,11 +3,13 @@ import MenuItemCard from "./MenuItemCard";
 import useRestMenu from "../utils/useRestMenu";
 import MenuItemCardShimmer from "./MenuItemCardShimmer";
 import RestMenuCategory from "./RestMenuCategory";
+import { useState } from "react";
 
 const RestMenu = () => {
   const { resId } = useParams(); // to get the restaurant id from the url
 
   const resInfo = useRestMenu(resId);
+  const [showIndex, setShowIndex] = useState(0);
 
   // to be displayed in the quick-info box for the restaurant
   const resData = resInfo?.cards[2]?.card?.card?.info;
@@ -15,9 +17,9 @@ const RestMenu = () => {
   // to be displayed in the menu item list
   const categories =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-    (c) =>
-      c.card?.["card"]?.["@type"] ==
-      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      (c) =>
+        c.card?.["card"]?.["@type"] ==
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
   // console.log(categories);
@@ -68,7 +70,12 @@ const RestMenu = () => {
         ) : (
           <div>
             {categories.map((category, index) => (
-              <RestMenuCategory key={index} data={category.card?.card} />
+              <RestMenuCategory
+                key={index}
+                data={category?.card?.card}
+                showMenu={index === showIndex}
+                setShowIndex={() => setShowIndex(index)}
+              />
             ))}
           </div>
         )}

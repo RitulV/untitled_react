@@ -42,7 +42,7 @@ const ItemCard = (props) => {
 
           <div className="res-menu-list-item-2">
             <img src="https://ritulv.github.io/image-hosting/rupee.png" />
-            <span>{(itemData.price / 100) || (itemData.defaultPrice / 100)}</span>
+            <span>{itemData.price / 100 || itemData.defaultPrice / 100}</span>
           </div>
 
           {itemData.ratings.aggregatedRating.rating ? (
@@ -82,7 +82,16 @@ const ItemCard = (props) => {
           )}
         </div>
         <div className="res-menu-list-item-image">
-          <img src={IMG_CDN_URL + itemData.imageId} />
+          <div className="flex-col justify-items-center">
+            <img
+              className="h-[144px] w-[156px] rounded-md"
+              src={IMG_CDN_URL + itemData.imageId}
+            />
+            <button className="border-transparent w-15 h-8 bg-[rgb(57,187,57)] rounded-md cursor-pointer text-white font-bold 
+                              hover:scale-90 duration-[0.3s] ease">
+              Add +
+            </button>
+          </div>
         </div>
       </div>
     </div>

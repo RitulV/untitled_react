@@ -1,14 +1,15 @@
-import { useState } from "react";
 import MenuItemCard from "./MenuItemCard";
+import { useState } from "react";
 
-const RestMenuCategory = (props) => {
-    const { data } = props;
-    const [isDropped, setIsDropped] = useState(true);
+// controlled component
+const RestMenuCategory = ({ data, showMenu, setShowIndex }) => {
+  // const [showMenu, setShowMenu] = useState(true);
 
-    const handleDropDown = () => {
-        setIsDropped(!isDropped);
-    }
-//   console.log(data);
+  const handleDropDown = () => {
+    // setShowMenu(!showMenu);
+    setShowIndex();
+  };
+  //   console.log(data);
 
   return (
     <div>
@@ -21,12 +22,16 @@ const RestMenuCategory = (props) => {
         </p>
         <img
           className="mr-4 w-[18px] h-[18px] self-center cursor-pointer"
-          src="https://ritulv.github.io/image-hosting/drop-down-3.png"
+          src={
+            showMenu
+              ? "https://ritulv.github.io/image-hosting/pull-up.png"
+              : "https://ritulv.github.io/image-hosting/drop-down-3.png"
+          }
           onClick={handleDropDown}
         />
       </div>
 
-      {isDropped && <MenuItemCard itemData={data?.itemCards} />}
+      {showMenu && <MenuItemCard itemData={data?.itemCards} />}
     </div>
   );
 };
