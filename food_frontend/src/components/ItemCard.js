@@ -1,12 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+
 import { IMG_CDN_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemCard = (props) => {
   const { itemData } = props;
+  const dispatch = useDispatch();
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTruncatable, setIsTruncatable] = useState(false);
   const paragraphRef = useRef(null);
+
+  const handleAddItem = () => {
+    dispatch(addItem(itemData));
+  }
 
   useEffect(() => {
     if (paragraphRef.current) {
@@ -22,7 +30,7 @@ const ItemCard = (props) => {
     setIsExpanded(!isExpanded);
   };
 
-  // console.log(itemData);
+  console.log(itemData);
 
   return (
     <div className="res-menu-list-item">
@@ -35,6 +43,7 @@ const ItemCard = (props) => {
       </div>
 
       <div className="res-menu-list-item-container">
+        
         <div className="res-menu-list-item-details">
           <div className="res-menu-list-item-1">
             <span>{itemData.name}</span>
@@ -81,14 +90,18 @@ const ItemCard = (props) => {
             ""
           )}
         </div>
+
         <div className="res-menu-list-item-image">
-          <div className="flex-col justify-items-center">
+          <div className="flex-col justify-items-center h-[180px]">
             <img
               className="h-[144px] w-[156px] rounded-md"
               src={IMG_CDN_URL + itemData.imageId}
             />
-            <button className="border-transparent w-15 h-8 bg-[rgb(57,187,57)] rounded-md cursor-pointer text-white font-bold 
-                              hover:scale-90 duration-[0.3s] ease">
+            <button
+              className="border-transparent w-15 h-8 bg-[rgb(57,187,57)] rounded-md cursor-pointer text-white font-bold 
+                         hover:scale-90 duration-[0.3s] ease"
+              onClick={handleAddItem}
+            >
               Add +
             </button>
           </div>

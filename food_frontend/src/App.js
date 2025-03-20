@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -10,14 +11,17 @@ import Cart from "./components/Cart";
 import RestMenu from "./components/RestMenu";
 import Error from "./components/Error";
 import Team from "./components/Team";
+import appStore from "./utils/appStore";
 
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </Provider>
   );
 };
 

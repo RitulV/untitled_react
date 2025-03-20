@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HEAD_LOGO } from "../utils/constants";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   // whole header component is rendered when setter method is called
   const [logInBtn, setlogInBtn] = useState("Log in");
+
+  // subscribing to the store using a selector (Redux)
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="header">
@@ -18,8 +22,13 @@ const Header = () => {
         <div className="nav-items">
           <Link to="/offers">Offer</Link>
         </div>
-        <div className="nav-items">
-          <Link to="/cart">Cart</Link>
+        <div>
+          <Link to="/cart" className="nav-item-cart">
+            Cart
+            <div className="w-[22px] flex justify-center border border-transparent rounded-bl-2xl rounded-br-2xl bg-[rgb(57,187,57)] text-white font-bold">
+              {cartItems.length}
+            </div>
+          </Link>
         </div>
         <div
           className="nav-items"
