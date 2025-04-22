@@ -1,20 +1,36 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useDispatch } from "react-redux";
 
 import { IMG_CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
+import cartContext from "../utils/cartContext";
 
 const ItemCard = (props) => {
-  const { itemData } = props;
-  const dispatch = useDispatch();
+  const { itemData, nameOfRest } = props;
+  const dispatch = useDispatch(); // creating a consumer for actions which will help in dispatching actions
+  const { restaurantName, setRestName } = useContext(cartContext);
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTruncatable, setIsTruncatable] = useState(false);
   const paragraphRef = useRef(null);
 
   const handleAddItem = () => {
-    dispatch(addItem(itemData));
-  }
+    if (
+      restaurantName === "default restaurant" ||
+      restaurantName == nameOfRest
+    ) {
+      // console.log("restaurant name from context: ", restaurantName);
+      // console.log("restaurant name passed from parent: ", nameOfRest);
+      setRestName(nameOfRest);
+      dispatch(addItem(itemData)); // dispatches an action
+
+      console.log("Item added!!!");
+    } else {
+      console.log(
+        "Item couldn't be added as it is from a different restaurant"
+      );
+    }
+  };
 
   useEffect(() => {
     if (paragraphRef.current) {
@@ -30,8 +46,6 @@ const ItemCard = (props) => {
     setIsExpanded(!isExpanded);
   };
 
-  console.log(itemData);
-
   return (
     <div className="res-menu-list-item">
       <div className="res-menu-list-item-1">
@@ -43,7 +57,6 @@ const ItemCard = (props) => {
       </div>
 
       <div className="res-menu-list-item-container">
-        
         <div className="res-menu-list-item-details">
           <div className="res-menu-list-item-1">
             <span>{itemData.name}</span>

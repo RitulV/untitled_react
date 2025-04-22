@@ -9,6 +9,7 @@ const Header = () => {
 
   // subscribing to the store using a selector (Redux)
   const cartItems = useSelector((store) => store.cart.items);
+  // console.log(cartItems);
 
   return (
     <div className="header">
@@ -26,7 +27,7 @@ const Header = () => {
           <Link to="/cart" className="nav-item-cart">
             Cart
             <div className="w-[22px] flex justify-center border border-transparent rounded-bl-2xl rounded-br-2xl bg-[rgb(57,187,57)] text-white font-bold">
-              {cartItems.length}
+              {Object.keys(cartItems).length}
             </div>
           </Link>
         </div>

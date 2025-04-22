@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 
@@ -13,12 +13,21 @@ import Error from "./components/Error";
 import Team from "./components/Team";
 import appStore from "./utils/appStore";
 
+import cartContext from "./utils/cartContext";
+
 const AppLayout = () => {
+  const cartCtx = useContext(cartContext);
+  const [restName, setRestName] = useState(cartCtx.restaurantName);
+
+  // console.log(restName);
+
   return (
     <Provider store={appStore}>
       <div className="app">
-        <Header />
-        <Outlet />
+        <cartContext.Provider value={{ restaurantName: restName, setRestName }}>
+          <Header />
+          <Outlet />
+        </cartContext.Provider>
         <Footer />
       </div>
     </Provider>

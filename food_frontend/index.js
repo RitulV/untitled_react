@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import AppLayout from "./src/App";
 import { router } from "./src/App";
 import './styles.css';
 

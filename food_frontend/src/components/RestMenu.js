@@ -10,9 +10,13 @@ const RestMenu = () => {
 
   const resInfo = useRestMenu(resId);
   const [showIndex, setShowIndex] = useState(0);
+  // console.log(resInfo);
+  
 
   // to be displayed in the quick-info box for the restaurant
   const resData = resInfo?.cards[2]?.card?.card?.info;
+  const resName = resInfo?.cards[0]?.card?.card?.text;
+  // console.log(resName);
 
   // to be displayed in the menu item list
   const categories =
@@ -33,9 +37,11 @@ const RestMenu = () => {
         <span>/</span>
         <span>{resData?.name}</span>
       </div>
+
       <div className="res-menu-name">
         <h2>{resData?.name}</h2>
       </div>
+
       <div className="quick-info-card">
         <div className="quick-info-first">
           <img src="https://ritulv.github.io/image-hosting/star-logo.png" />
@@ -62,6 +68,7 @@ const RestMenu = () => {
           <span>{resData?.sla?.slaString}</span>
         </div>
       </div>
+
       <hr />
 
       <div>
@@ -73,6 +80,7 @@ const RestMenu = () => {
               <RestMenuCategory
                 key={index}
                 data={category?.card?.card}
+                name={resName}
                 showMenu={index === showIndex}
                 setShowIndex={() => setShowIndex(index)}
               />

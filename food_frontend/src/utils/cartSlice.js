@@ -7,16 +7,28 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      // this reducer function gets access to the current state and the action
-      state.items.push(action.payload);
+      const itemId = action.payload.id;
+      // console.log(action.payload);
+      
+      if (!state.items[itemId]) {
+        state.items[itemId] = { ...action.payload, quantity: 1 }; // Proper initialization
+      } else {
+        state.items[itemId].quantity++; // Safely incrementing quantity
+      }
     },
 
-    removeItem: (state) => {
-      state.items.pop();
+    removeItem: (state, action) => {
+      const itemId = action.payload;
+      if (state.items[itemId]) {
+        state.items[itemId]--;
+      }
+      if (state.items[itemId] == 0) {
+        delete state.items[itemId];
+      }
     },
 
     clearCart: (state) => {
-      state.items.length = 0; // []
+      state.items = {}; // []
     },
   },
 });

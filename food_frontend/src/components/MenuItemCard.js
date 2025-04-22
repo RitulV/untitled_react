@@ -1,15 +1,15 @@
 import ItemCard from "./ItemCard";
 
 const MenuItemCard = (props) => {
-  const { itemData } = props;
-    // console.log(itemData);
-    return (
-      <div className="res-menu-list-container">
-        {itemData.map((itemInfo) => (
-          <ItemCard key={itemInfo.card.info.id} itemData={itemInfo.card.info} />
-        ))}
-      </div>
-    );
+  const { itemData, resName } = props;
+  // console.log(resName);
+  return (
+    <div className="res-menu-list-container">
+      {itemData.map((itemInfo) => (
+        <ItemCard nameOfRest={resName} key={itemInfo.card.info.id} itemData={itemInfo.card.info} />
+      ))}
+    </div>
+  );
 };
 
 export default MenuItemCard;
