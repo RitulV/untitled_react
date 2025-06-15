@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, lazy, Suspense } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 
@@ -7,29 +7,36 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 
 import Offer from "./components/Offer";
-import Cart from "./components/Cart";
 import RestMenu from "./components/RestMenu";
 import Error from "./components/Error";
 import Team from "./components/Team";
-import appStore from "./utils/appStore";
+
+const Cart = lazy(() => import("./components/Cart"));
+
+// import appStore from "./utils/appStore";
+import { appStore, persistor } from "./utils/configureStore";
+import { PersistGate } from "redux-persist/integration/react";
 
 import cartContext from "./utils/cartContext";
+import Loading from "./utils/Loading";
 
 const AppLayout = () => {
   const cartCtx = useContext(cartContext);
-  const [restName, setRestName] = useState(cartCtx.restaurantName);
+  const [restId, setRestId] = useState(cartCtx.restaurantId);
 
-  // console.log(restName);
+  // console.log(restId);
 
   return (
     <Provider store={appStore}>
-      <div className="app">
-        <cartContext.Provider value={{ restaurantName: restName, setRestName }}>
-          <Header />
-          <Outlet />
-        </cartContext.Provider>
-        <Footer />
-      </div>
+      <PersistGate loading={<Loading />} persistor={persistor}>
+        <div className="app">
+          <cartContext.Provider value={{ restaurantId: restId, setRestId }}>
+            <Header />
+            <Outlet />
+          </cartContext.Provider>
+          <Footer />
+        </div>
+      </PersistGate>
     </Provider>
   );
 };
@@ -46,7 +53,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "/offers",

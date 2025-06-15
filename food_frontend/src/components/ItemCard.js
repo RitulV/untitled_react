@@ -6,30 +6,26 @@ import { addItem } from "../utils/cartSlice";
 import cartContext from "../utils/cartContext";
 
 const ItemCard = (props) => {
-  const { itemData, nameOfRest } = props;
+  const { itemData, resid } = props;
   const dispatch = useDispatch(); // creating a consumer for actions which will help in dispatching actions
-  const { restaurantName, setRestName } = useContext(cartContext);
-
+  const { restaurantId, setRestId } = useContext(cartContext);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTruncatable, setIsTruncatable] = useState(false);
   const paragraphRef = useRef(null);
 
   const handleAddItem = () => {
-    if (
-      restaurantName === "default restaurant" ||
-      restaurantName == nameOfRest
-    ) {
-      // console.log("restaurant name from context: ", restaurantName);
-      // console.log("restaurant name passed from parent: ", nameOfRest);
-      setRestName(nameOfRest);
+    if (restaurantId == "default id" || restaurantId == resid) {
+      // console.log("restaurant id from context: ", restaurantId);
+      // console.log("restaurant id passed from parent: ", resid);
+      setRestId(resid);
       dispatch(addItem(itemData)); // dispatches an action
-
-      console.log("Item added!!!");
-    } else {
-      console.log(
-        "Item couldn't be added as it is from a different restaurant"
-      );
+      // console.log("Item added!!!");
     }
+    // else {
+    //   console.log(
+    //     "Item couldn't be added as it is from a different restaurant"
+    //   );
+    // }
   };
 
   useEffect(() => {

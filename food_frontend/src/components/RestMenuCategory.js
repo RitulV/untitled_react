@@ -2,7 +2,7 @@ import MenuItemCard from "./MenuItemCard";
 import { useState } from "react";
 
 // controlled component
-const RestMenuCategory = ({ data, name, showMenu, setShowIndex }) => {
+const RestMenuCategory = ({ data, resid, showMenu, setShowIndex }) => {
   // const [showMenu, setShowMenu] = useState(true);
 
   const handleDropDown = () => {
@@ -31,7 +31,7 @@ const RestMenuCategory = ({ data, name, showMenu, setShowIndex }) => {
         />
       </div>
 
-      {showMenu && <MenuItemCard resName={name} itemData={data?.itemCards} />}
+      {showMenu && <MenuItemCard resId={resid} itemData={data?.itemCards} />}
     </div>
   );
 };

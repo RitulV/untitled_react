@@ -1,5 +1,4 @@
 const { configureStore } = require("@reduxjs/toolkit");
-import { useReducer } from "react";
 import cartReducer from "./cartSlice";
 import userReducer from "./userSlice";
 

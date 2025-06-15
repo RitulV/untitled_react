@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 const cartContext = createContext({
-  restaurantName: "default restaurant",
+  restaurantId: "default id",
 });
 
 export default cartContext;

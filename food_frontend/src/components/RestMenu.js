@@ -15,7 +15,6 @@ const RestMenu = () => {
 
   // to be displayed in the quick-info box for the restaurant
   const resData = resInfo?.cards[2]?.card?.card?.info;
-  const resName = resInfo?.cards[0]?.card?.card?.text;
   // console.log(resName);
 
   // to be displayed in the menu item list
@@ -80,7 +79,7 @@ const RestMenu = () => {
               <RestMenuCategory
                 key={index}
                 data={category?.card?.card}
-                name={resName}
+                resid={resId}
                 showMenu={index === showIndex}
                 setShowIndex={() => setShowIndex(index)}
               />

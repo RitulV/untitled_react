@@ -1,4 +1,7 @@
+import { lazy } from "react";
+
 import MenuSummary from "./Cart/MenuSummary";
+// const MenuSummary = lazy(() => import("./Cart/MenuSummary"));
 
 const Cart = () => {
   return (
