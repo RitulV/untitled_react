@@ -20,7 +20,7 @@ const cartSlice = createSlice({
     },
 
     removeItem: (state, action) => {
-      const itemId = action.payload;
+      const itemId = action.payload.id;
       const existingItem = state.items.find((item) => item.id === itemId);
 
       if (existingItem) {

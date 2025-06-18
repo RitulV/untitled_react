@@ -20,16 +20,17 @@ const Footer = () => {
       <div className="app-info-container">
         <div className="company">
           <div className="company-info">
-            <h1>
+            <h1 className="font-semibold">
               <img src={FOOT_LOGO}></img>
               &nbsp;LunchBox
             </h1>
             <p>©️ 2024 Big Tech</p>
           </div>
         </div>
+
         <div className="sidebar1">
           <div className="company-details-container">
-            <h2>Company</h2>
+            <h2 className="font-semibold">Company</h2>
             <div className="company-details-items">About</div>
             <div className="company-details-items">Careers</div>
             <div className="company-details-items">
@@ -37,9 +38,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="sidebar2">
           <div className="delivery-details-container">
-            <h2>Now delivering to:</h2>
+            <h2 className="font-semibold">Now delivering to:</h2>
             <div className="delivery-details-items">Bangalore</div>
             <div className="delivery-details-items">Hyderabad</div>
             <div className="delivery-details-items">Pune</div>
@@ -48,16 +50,18 @@ const Footer = () => {
             <div className="delivery-details-items">Jaipur</div>
           </div>
         </div>
+
         <div className="content1">
           <div className="content1-details-container">
-            <h2>Contact us</h2>
+            <h2 className="font-semibold">Contact us</h2>
             <div className="content1-details-items">Help & Support</div>
             <div className="content1-details-items">Partnership</div>
           </div>
         </div>
+
         <div className="content2">
           <div className="content2-details-container">
-            <h2>Legal</h2>
+            <h2 className="font-semibold">Legal</h2>
             <div className="content2-details-items">Terms & Condition</div>
             <div className="content2-details-items">Cookie Policy</div>
             <div className="content2-details-items">Privacy Policy</div>

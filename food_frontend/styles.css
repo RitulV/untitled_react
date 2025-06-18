@@ -408,9 +408,15 @@
 }
 
 .app-info-container > div {
-  border: 1px solid black;
-  /* height: 100px;
-    width: 100px; */
+  border: 1px solid rgba(0, 0, 0, 0.181);
+  border-radius: 15px;
+  box-shadow: inset 4px 3px 5px rgba(0, 0, 0, 0.312);
+  transition: box-shadow 1s ease, transform 1s ease; /* transition */
+
+  &:hover {
+    box-shadow: 0px 3px 0px 1.5px rgb(57 187 57),
+      0.5em 1em 0.4em rgba(0, 0, 0, 0.506);
+  }
 }
 
 .company {
@@ -467,6 +473,21 @@ p {
 
 .content1-details-items {
   margin: 10px;
+
+  &:hover {
+    /* color: red; */
+    cursor: pointer;
+  }
+
+  > a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: red;
+      cursor: pointer;
+    }
+  }
 }
 
 .content2-details-container > h2 {
@@ -475,6 +496,21 @@ p {
 
 .content2-details-items {
   margin: 10px;
+
+  &:hover {
+    /* color: red; */
+    cursor: pointer;
+  }
+
+  > a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: red;
+      cursor: pointer;
+    }
+  }
 }
 
 .sidebar1 {
