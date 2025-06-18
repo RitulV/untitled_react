@@ -354,7 +354,7 @@
   justify-self: center;
   object-fit: cover; /* Ensures the image maintains its aspect ratio while fitting the container*/
   border-radius: 10px;
-  margin: 5px;
+  margin: 5px auto;
 }
 
 .footer {
