@@ -1,5 +1,5 @@
 import React, { useContext, useState, lazy, Suspense } from "react";
-import { createBrowserRouter, Outlet } from "react-router-dom";
+import { Outlet, createHashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import Header from "./components/Header";
@@ -41,7 +41,7 @@ const AppLayout = () => {
   );
 };
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <AppLayout />,
